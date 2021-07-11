@@ -59,8 +59,8 @@ The unshift() method adds one or more elements to the beginning of an array and 
 
 在arrary中的第一个为位置上添加上内容，并返回当前的 arrary length 长度
 
-## .slice()
-
+## .slice() / .splice(int,int,...)
+### .slice()
 ```javascript
     const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
 
@@ -83,7 +83,67 @@ The unshift() method adds one or more elements to the beginning of an array and 
 The slice() method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
 
 切片
+### .splice(int,int,...)
+```javascript
+    const months = ['Jan', 'March', 'April', 'June'];
+    months.splice(1, 0, 'Feb');
+    // inserts at index 1
+    console.log(months);
+    // expected output: Array ["Jan", "Feb", "March", "April", "June"]
 
-## indexOf()
+    months.splice(4, 1, 'May');
+    // replaces 1 element at index 4
+    console.log(months);
+    // expected output: Array ["Jan", "Feb", "March", "April", "May"]
+```
+The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place
+
+#### 第一个**parameter变量** 是在第哪几个arrary位置开始准备删除
+**举例：从第一个元素来时删除两个元素并插入三个元素**
+```javascript
+    let myFish = ['angel', 'clown', 'trumpet', 'sturgeon']
+    let removed = myFish.splice(0, 2, 'parrot', 'anemone', 'blue')
+
+    // myFish is ["parrot", "anemone", "blue", "trumpet", "sturgeon"]
+    // removed is ["angel", "clown"]
+```
+
+#### 第二个**parameter变量** 是从第一个parameter那里为起点开始，移除几个元素（int）
+
+**举例：从第二个开始移除全部**
+```javascript
+    let myFish = ['angel', 'clown', 'mandarin', 'sturgeon']
+    let removed = myFish.splice(2)
+
+    // myFish is ["angel", "clown"]
+    // removed is ["mandarin", "sturgeon"]
+```
+#### 第三个**parameter变量** 是插入哪个 / 几个元素 
+**举例：移除零个元素在第二个元素前，插入两个元素**
+```javascript
+    let myFish = ['angel', 'clown', 'mandarin', 'sturgeon']
+    let removed = myFish.splice(2，0，‘drum’，‘guitar’)
+
+// myFish is ["angel", "clown", "drum", "guitar", "mandarin", "sturgeon"]
+// removed is [], no elements removed
+```
+
+
+## .indexOf()
 
 indexOf(searchElement: string, fromIndex?: number): number
+
+## .join()
+**举例：连接arrary中的elements为句子**
+```javascript
+    const elements = ['Fire', 'Air', 'Water'];
+
+    console.log(elements.join());
+    // expected output: "Fire,Air,Water"
+
+    console.log(elements.join(''));
+    // expected output: "FireAirWater"
+
+    console.log(elements.join('-'));
+    // expected output: "Fire-Air-Water"
+```
