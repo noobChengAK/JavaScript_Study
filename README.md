@@ -13,6 +13,8 @@ trainingday.js 0709
 
 Secret_Message.js 0712
 
+whale_talk.js 0719
+
 ## Review Markdown files
  scope_concept_review.md 0709
 
